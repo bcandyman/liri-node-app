@@ -5,18 +5,13 @@ var axios = require("axios");
 var moment = require('moment');
 var fs = require("fs");
 
-var formatLoc = (city, region, country) => {
-    let str = "";
-    if (city.trim() !== "") {
-        str = city;
-    };
-    if (region.trim() !== "") {
-        str += `, ${region}`;
-    };
-    if (country.trim() !== "") {
-        str += `, ${country}`;
-    };
-    return str;
+var formatLoc = (...input) => {
+
+    let str = input[0];
+    for (let i = 1; i < input.length; i++){
+        if (input[i] !== ""){str += ", " + input[i]}
+    }
+    return str;    
 };
 
 var formatSrchStr = (str) => {
@@ -138,10 +133,6 @@ function printMovieData(movieTitle) {
             console.log(`Actors: ${data.Actors}`)
         })
 }
-
-
-
-
 
 
 
