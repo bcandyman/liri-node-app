@@ -1,1 +1,6 @@
 homework_instructions.md
+package-lock.json
+node_modules
+.DS_Store
+.env
+help.txt
