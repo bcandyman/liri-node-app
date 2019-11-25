@@ -8,10 +8,10 @@ var fs = require("fs");
 var formatLoc = (...input) => {
 
     let str = input[0];
-    for (let i = 1; i < input.length; i++){
-        if (input[i] !== ""){str += ", " + input[i]}
+    for (let i = 1; i < input.length; i++) {
+        if (input[i] !== "") { str += ", " + input[i] }
     }
-    return str;    
+    return str;
 };
 
 var formatSrchStr = (str) => {
@@ -26,7 +26,20 @@ var formatSrchStr = (str) => {
 
 
 
-function printConcertData(artist) {
+function printData(data) {
+
+    console.log(data)
+    fs.appendFile("log.txt", data + "\n", function (err) {
+
+        if (err) {
+            return console.log(err);
+        }
+    });
+}
+
+
+
+function getConcertData(artist) {
 
     //format user artist string for searching
     const formattedArtist = formatSrchStr(artist)
@@ -53,10 +66,13 @@ function printConcertData(artist) {
                 //Loop through each concert instance and print the information
                 for (key in data) {
                     let venueInfo = data[key].venue;
-                    console.log(`---------------------------------------`);
-                    console.log(`Venue Name:     ${venueInfo.name}`);
-                    console.log(`Venue Location: ${formatLoc(venueInfo.city, venueInfo.region, venueInfo.country)}`);
-                    console.log(`Date:           ${moment(data[key].datetime).format("MM/DD/YYYY")}`);
+
+                    let output = `---------------------------------------\n`;
+                    output += `Venue Name:     ${venueInfo.name}\n`;
+                    output += `Venue Location: ${formatLoc(venueInfo.city, venueInfo.region, venueInfo.country)}\n`;
+                    output += `Date:           ${moment(data[key].datetime).format("MM/DD/YYYY")}`;
+
+                    printData(output)
 
                     if (count >= 10) {
                         break;
@@ -80,7 +96,7 @@ function printConcertData(artist) {
 
 
 
-function printSongData(songName) {
+function getSongData(songName) {
     console.log('spotify-this-song')
     var Spotify = require('node-spotify-api');
     var keys = require("./keys.js");
@@ -90,19 +106,23 @@ function printSongData(songName) {
     });
 
     spotify
-        .search({ type: 'track', query: songName, limit: 1 })
-
-        // .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
+        .search({
+            type: 'track',
+            query: songName,
+            limit: 1
+        })
         .then(function (response) {
 
-            const tracks = response.tracks.items
+            const tracks = response.tracks.items;
 
             for (key in tracks) {
-                console.log(`-----------------------------------`)
-                console.log(`Artist:     ${tracks[key].artists[0].name}`)
-                console.log(`Track Name: ${tracks[key].name}`)
-                console.log(`Preview URL:${tracks[key].preview_url}`)
-                console.log(`Album:      ${tracks[key].album.name}`)
+                let output = `---------------------------------------\n`;
+                output += `Artist:     ${tracks[key].artists[0].name}\n`;
+                output += `Track Name: ${tracks[key].name}\n`;
+                output += `Preview URL:${tracks[key].preview_url}\n`;
+                output += `Album:      ${tracks[key].album.name}`;
+
+                printData(output)
             }
         })
         .catch(function (err) {
@@ -114,23 +134,25 @@ function printSongData(songName) {
 
 
 
-function printMovieData(movieTitle) {
-    console.log(movieTitle)
+function getMovieData(movieTitle) {
+
     const searchableTitle = formatSrchStr(movieTitle)
-    console.log(searchableTitle)
 
     axios.get("http://www.omdbapi.com/?t=" + searchableTitle + "&y=&plot=short&apikey=trilogy").then(
         function (response) {
             const data = response.data
-            console.log(`-----------------------------------`)
-            console.log(`Title: ${data.Title}`)
-            console.log(`Release Year: ${data.Year}`)
-            console.log(`IMDB: ${data.Ratings[0].Value}`)
-            console.log(`Rotten Tomatoes: ${data.Ratings[1].Value}`)
-            console.log(`Country produced: ${data.Country}`)
-            console.log(`Language: ${data.Language}`)
-            console.log(`Plot: ${data.Plot}`)
-            console.log(`Actors: ${data.Actors}`)
+
+            let output = `---------------------------------------\n`;
+            output += `Title: ${data.Title}\n`;
+            output += `Release Year: ${data.Year}\n`;
+            output += `IMDB: ${data.Ratings[0].Value}\n`;
+            output += `Rotten Tomatoes: ${data.Ratings[1].Value}\n`;
+            output += `Country produced: ${data.Country}\n`;
+            output += `Language: ${data.Language}\n`;
+            output += `Plot: ${data.Plot}\n`;
+            output += `Actors: ${data.Actors}`;
+
+            printData(output)
         })
 }
 
@@ -160,7 +182,7 @@ inquirer.prompt({
                         if (artist === "") {
                             artist = "Celine Dion"
                         }
-                        printConcertData(artist)
+                        getConcertData(artist)
                     })
                 break;
 
@@ -170,9 +192,10 @@ inquirer.prompt({
                 inquirer.prompt({
                     type: 'input',
                     message: 'Input the song name you would like to search.',
-                    name: "songName"
+                    name: "songName",
+                    default: "All the small things"
                 })
-                    .then((response) => printSongData(response.songName))
+                    .then((response) => getSongData(response.songName))
                 break;
 
             case `movie-this`:
@@ -183,7 +206,7 @@ inquirer.prompt({
                     name: 'movieTitle'
                 })
                     .then(function (inqFilmTitle) {
-                        printMovieData(inqFilmTitle.movieTitle)
+                        getMovieData(inqFilmTitle.movieTitle)
                     });
                 break;
 
@@ -196,13 +219,13 @@ inquirer.prompt({
 
                     switch (mode) {
                         case `concert-this`:
-                            printConcertData(val)
+                            getConcertData(val)
                             break;
                         case `spotify-this-song`:
-                            printSongData(val)
+                            getSongData(val)
                             break;
                         case `movie-this`:
-                            printMovieData(val)
+                            getMovieData(val)
                             break;
                     }
 
@@ -213,3 +236,22 @@ inquirer.prompt({
                 break;
         }
     })
+
+
+
+// var strTest = "Line1\n"
+// strTest += "Line2\n"
+// strTest += "Line3\n"
+// console.log(strTest)
+
+//     fs.appendFile("log.txt", strTest, function(err) {
+
+//         // If the code experiences any errors it will log the error to the console.
+//         if (err) {
+//           return console.log(err);
+//         }
+
+//         // Otherwise, it will print: "movies.txt was updated!"
+//         console.log("movies.txt was updated!");
+
+//       });
