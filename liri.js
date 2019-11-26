@@ -25,6 +25,16 @@ var formatSrchStr = (str) => {
 }
 
 
+var toTitleCase = (str) => {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
+
+
 
 function printData(data) {
 
@@ -68,6 +78,7 @@ function getConcertData(artist) {
                     let venueInfo = data[key].venue;
 
                     let output = `---------------------------------------\n`;
+                    output += `Artist:         ${toTitleCase(artist)}\n`;
                     output += `Venue Name:     ${venueInfo.name}\n`;
                     output += `Venue Location: ${formatLoc(venueInfo.city, venueInfo.region, venueInfo.country)}\n`;
                     output += `Date:           ${moment(data[key].datetime).format("MM/DD/YYYY")}`;
@@ -116,11 +127,14 @@ function getSongData(songName) {
             const tracks = response.tracks.items;
 
             for (key in tracks) {
+                let myTrk = tracks[key]
                 let output = `---------------------------------------\n`;
-                output += `Artist:     ${tracks[key].artists[0].name}\n`;
-                output += `Track Name: ${tracks[key].name}\n`;
-                output += `Preview URL:${tracks[key].preview_url}\n`;
-                output += `Album:      ${tracks[key].album.name}`;
+                output += `Artist:         ${myTrk.artists[0].name}\n`;
+                output += `Track Name:     ${myTrk.name}\n`;
+                if(myTrk.preview_url !== null){
+                    output += `Preview URL:    ${myTrk.preview_url}\n`;
+                }
+                output += `Album:          ${myTrk.album.name}`;
 
                 printData(output)
             }
@@ -153,6 +167,9 @@ function getMovieData(movieTitle) {
             output += `Actors: ${data.Actors}`;
 
             printData(output)
+        })
+        .catch(function (err) {
+            console.log(err)
         })
 }
 
@@ -236,22 +253,3 @@ inquirer.prompt({
                 break;
         }
     })
-
-
-
-// var strTest = "Line1\n"
-// strTest += "Line2\n"
-// strTest += "Line3\n"
-// console.log(strTest)
-
-//     fs.appendFile("log.txt", strTest, function(err) {
-
-//         // If the code experiences any errors it will log the error to the console.
-//         if (err) {
-//           return console.log(err);
-//         }
-
-//         // Otherwise, it will print: "movies.txt was updated!"
-//         console.log("movies.txt was updated!");
-
-//       });
