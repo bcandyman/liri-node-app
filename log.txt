@@ -1,0 +1,132 @@
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     United Center
+Venue Location: Chicago, IL, United States
+Date:           12/01/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     Bankers Life Fieldhouse
+Venue Location: Indianapolis, IN, United States
+Date:           12/03/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     KeyBank Center
+Venue Location: Buffalo, NY, United States
+Date:           12/05/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     Times Union Center
+Venue Location: Albany, NY, United States
+Date:           12/07/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     Scotiabank Arena
+Venue Location: Toronto, Canada
+Date:           12/09/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     TD Garden
+Venue Location: Boston, MA, United States
+Date:           12/13/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     VyStar Veterans Memorial Arena
+Venue Location: Jacksonville, FL, United States
+Date:           01/08/2020
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     TD Garden
+Venue Location: Boston, MA, United States
+Date:           12/14/2019
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     State Farm Arena
+Venue Location: Atlanta, GA, United States
+Date:           01/11/2020
+---------------------------------------
+Artist:         Celine Dion
+Venue Name:     Scotiabank Arena
+Venue Location: Toronto, Canada
+Date:           12/10/2019
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     RAC Arena
+Venue Location: Perth, Australia
+Date:           05/01/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Brisbane Entertainment Centre
+Venue Location: Boondall, Australia
+Date:           05/05/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Rod Laver Arena
+Venue Location: Melbourne, Australia
+Date:           05/11/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Spark Arena
+Venue Location: Auckland, New Zealand
+Date:           05/13/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Pulp Summer Slam
+Venue Location: Manila, Philippines
+Date:           05/16/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Pia Arena
+Venue Location: Tokyo, Japan
+Date:           05/19/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Pia Arena
+Venue Location: Tokyo, Japan
+Date:           05/20/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Rod Laver Arena
+Venue Location: Melbourne, Australia
+Date:           05/09/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Adelaide Entertainment Centre
+Venue Location: Hindmarsh, Australia
+Date:           05/03/2020
+---------------------------------------
+Artist:         Iron Maiden
+Venue Name:     Qudos Bank Arena
+Venue Location: Sydney, Australia
+Date:           05/07/2020
+---------------------------------------
+Artist:         Ace of Base
+Track Name:     The Sign
+Preview URL:    https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=7f0bfd1627354480b59662a92176243d
+Album:          The Sign (US Album) [Remastered]
+---------------------------------------
+Artist:         Black Sabbath
+Track Name:     Iron Man - 2014 Remaster
+Preview URL:    https://p.scdn.co/mp3-preview/83facf894aaa71be09e596b7e727609fc9bd4eb7?cid=7f0bfd1627354480b59662a92176243d
+Album:          Paranoid (2014 Remaster)
+---------------------------------------
+Title: Mr. Nobody
+Release Year: 2009
+IMDB: 7.8/10
+Rotten Tomatoes: 67%
+Country produced: Belgium, Germany, Canada, France, USA, UK
+Language: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+---------------------------------------
+Title: Tommy Boy
+Release Year: 1995
+IMDB: 7.1/10
+Rotten Tomatoes: 42%
+Country produced: USA
+Language: English
+Plot: After his auto-parts tycoon father dies, the overweight, underachieving son teams up with a snide accountant to try and save the family business.
+Actors: Chris Farley, David Spade, Brian Dennehy, Bo Derek
+---------------------------------------
+Artist:         The Beatles
+Track Name:     Yellow Submarine - Remastered 2009
+Album:          Revolver (Remastered)

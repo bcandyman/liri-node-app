@@ -210,7 +210,7 @@ inquirer.prompt({
                     type: 'input',
                     message: 'Input the song name you would like to search.',
                     name: "songName",
-                    default: "All the small things"
+                    default: "The Sign Ace of Base"
                 })
                     .then((response) => getSongData(response.songName))
                 break;
